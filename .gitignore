@@ -1,0 +1,5 @@
+# Ignore sensitive environment variables
+.env
+
+# Ignore all runtime data, logs, and certificates
+data/
