@@ -40,7 +40,7 @@ services:
       - "traefik.http.routers.wordpress.tls.certresolver=cloudflare"
 
   wordpress:
-    image: wordpress:latest-php8.3-fpm-alpine
+    image: wordpress:php8.3-fpm-alpine
     container_name: wordpress
     restart: unless-stopped
     volumes:
