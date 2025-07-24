@@ -1,5 +1,7 @@
-# Ignore sensitive environment variables
+# Environment file
 .env
 
-# Ignore all runtime data, logs, and certificates
-data/
+# Persistent data
+data/mariadb/
+data/wordpress/
+data/traefik/acme.json
