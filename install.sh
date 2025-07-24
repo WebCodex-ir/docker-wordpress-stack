@@ -1,4 +1,4 @@
-#!/bin.bash
+#!/bin/bash
 #
 # WordPress High-Performance Stack Installer
 # Author: Your Name (or AI Assistant)
