@@ -40,7 +40,7 @@ services:
       - "traefik.http.routers.wordpress.tls.certresolver=cloudflare"
 
   wordpress:
-    image: wordpress:php8.3-fpm-alpine
+    image: wordpress:php8.3-fpm
     container_name: wordpress
     restart: unless-stopped
     volumes:
@@ -67,7 +67,20 @@ services:
     command: '--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci'
 
   redis:
-    image: redis:latest-alpine
+    image: redis:alpine
     container_name: redis
     restart: unless-stopped
     command: redis-server --save 60 1 --loglevel warning
+
+  wp-cli:
+    image: wordpress:cli
+    volumes:
+      - ./data/wordpress:/var/www/html
+    environment:
+      - WORDPRESS_DB_HOST=mariadb:3306
+      - WORDPRESS_DB_USER=${DB_USER}
+      - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
+      - WORDPRESS_DB_NAME=${DB_NAME}
+    depends_on:
+      - mariadb
+      - wordpress
