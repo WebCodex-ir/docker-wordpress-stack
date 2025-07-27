@@ -34,7 +34,7 @@ if command -v ufw &> /dev/null; then
     ufw --force enable > /dev/null 2>&1
 fi
 
-echo "✅ Creating project structure..."
+echo "✅ Creating project structure and config files..."
 mkdir -p ./data/nginx
 mkdir -p ./data/traefik
 mkdir -p ./data/wordpress
@@ -50,6 +50,11 @@ memory_limit = 256M
 upload_max_filesize = 128M
 post_max_size = 128M
 max_execution_time = 300
+EOL
+
+# Create the custom Nginx config file for uploads
+cat > ./data/nginx/uploads.conf << EOL
+client_max_body_size 128m;
 EOL
 
 if [ ! -f .env ]; then
