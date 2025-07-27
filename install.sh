@@ -9,7 +9,11 @@ fi
 echo "✅ Updating system packages..."
 apt-get update > /dev/null 2>&1 && apt-get upgrade -y > /dev/null 2>&1
 
-echo "✅ Installing Docker and Docker Compose..."
+echo "✅ Installing Docker, Docker Compose, and Unzip..."
+# Install Unzip utility
+apt-get install -y unzip > /dev/null 2>&1
+
+# Install Docker
 if ! command -v docker &> /dev/null; then
     apt-get install -y ca-certificates curl > /dev/null 2>&1
     install -m 0755 -d /etc/apt/keyrings
@@ -45,6 +49,9 @@ fi
 
 echo "🚀 Launching all services..."
 docker compose up -d
+
+echo "✅ Setting correct file permissions for WordPress..."
+chown -R www-data:www-data ./data/wordpress/
 
 echo "🎉 Deployment successful!"
 echo "➡️ Wait a few minutes for the SSL certificate to be issued."
