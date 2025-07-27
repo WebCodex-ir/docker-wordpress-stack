@@ -39,8 +39,18 @@ mkdir -p ./data/nginx
 mkdir -p ./data/traefik
 mkdir -p ./data/wordpress
 mkdir -p ./data/mariadb
+mkdir -p ./data/php
 touch ./data/traefik/acme.json
 chmod 600 ./data/traefik/acme.json
+
+# Create the custom PHP config file for uploads
+cat > ./data/php/uploads.ini << EOL
+file_uploads = On
+memory_limit = 256M
+upload_max_filesize = 128M
+post_max_size = 128M
+max_execution_time = 300
+EOL
 
 if [ ! -f .env ]; then
     echo "❌ ERROR: .env file not found. Please copy .env.example to .env and fill it with your details."
