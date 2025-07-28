@@ -26,7 +26,7 @@
 
 با SSH به سرور خود متصل شوید و این ریپازیتوری را کلون کنید:
 ```bash
-git clone [https://github.com/WebCodex-ir/docker-wordpress-stack.git](https://github.com/WebCodex-ir/docker-wordpress-stack.git)
+git clone https://github.com/WebCodex-ir/docker-wordpress-stack.git
 cd docker-wordpress-stack
 ````
 
