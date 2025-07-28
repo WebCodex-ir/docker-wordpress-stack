@@ -24,7 +24,7 @@
 
 1.  **آماده‌سازی اولیه:** با SSH به سرور متصل شده و پروژه را از گیت‌هاب کلون کنید:
     ```bash
-    git clone [https://github.com/WebCodex-ir/docker-wordpress-stack.git](https://github.com/WebCodex-ir/docker-wordpress-stack.git)
+    git clone https://github.com/WebCodex-ir/docker-wordpress-stack.git
     cd docker-wordpress-stack
     ```
 2.  **پیکربندی:** فایل `.env.example` را به `.env` کپی کرده و با اطلاعات صحیح خود (دامنه، ایمیل و توکن کلودفلر و رمزهای دیتابیس) پر کنید.
